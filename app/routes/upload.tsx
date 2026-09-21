@@ -83,7 +83,7 @@ export default function Upload() {
     setStatusText("Analyzing resume...");
 
     const feedback = await ai.feedback(
-      uploadFile.path,
+      uploadImage.path,
       prepareInstructions({ jobTitle, jobDescription }),
     );
 
@@ -101,8 +101,8 @@ export default function Upload() {
     data.feedback = JSON.parse(feedbackText);
     await kv.set(`resume:${uuid}`, JSON.stringify(data));
     setStatusText("Analysis complete! Redirecting...");
-    // navigate(`/resume/${uuid}`);
     console.log(data);
+    navigate(`/resume/${uuid}`);
   };
 
   const handleSubmit = function (event: React.FormEvent<HTMLFormElement>) {
