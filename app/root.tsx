@@ -27,9 +27,11 @@ export const links: Route.LinksFunction = () => [
 
 export function Layout({ children }: { children: React.ReactNode }) {
   const { init } = usePuterStore();
+
   useEffect(function () {
-    if (typeof window !== undefined) init();
+    init();
   }, []);
+
   return (
     <html lang="en">
       <head>
