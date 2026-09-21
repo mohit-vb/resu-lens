@@ -10,3 +10,7 @@ export function FormatSize(bytes: number): string {
 
   return `${Number(size.toFixed(2))} ${units[Math.max(unitIndex, 0)]}`;
 }
+
+export function generateUUID() {
+  return crypto.randomUUID();
+}
